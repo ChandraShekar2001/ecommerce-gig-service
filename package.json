@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@chandrashekar2001/ecommerce-shared": "npm:@ChandraShekar2001/ecommerce-shared@^1.0.2",
+    "@chandrashekar2001/ecommerce-shared": "npm:@chandrashekar2001/ecommerce-shared@^1.0.2",
     "@elastic/elasticsearch": "^8.13.1",
     "@faker-js/faker": "^8.4.1",
     "amqplib": "^0.10.4",
