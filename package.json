@@ -2,7 +2,7 @@
   "name": "ecommerce-gig-service",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "pm2 start ./build/src/app.js -i 5 --attach --watch | pino-pretty -c",
     "stop": "pm2 stop all",
@@ -26,6 +26,7 @@
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "elastic-apm-node": "^4.5.3",
     "express": "^4.19.2",
     "express-async-errors": "^3.1.1",
     "helmet": "^7.1.0",
