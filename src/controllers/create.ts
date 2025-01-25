@@ -11,7 +11,7 @@ const gigCreate = async (req: Request, res: Response): Promise<void> => {
   if (error?.details) {
     throw new BadRequestError(error.details[0].message, 'Create gig() method');
   }
-  const result: UploadApiResponse = await uploads(req.body.coverImage) as UploadApiResponse;
+  const result: UploadApiResponse = (await uploads(req.body.coverImage)) as UploadApiResponse;
   if (!result.public_id) {
     throw new BadRequestError('File upload error. Try again.', 'Create gig() method');
   }

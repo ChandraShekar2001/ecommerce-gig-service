@@ -12,7 +12,7 @@ const gig = async (req: Request, res: Response): Promise<void> => {
     JSON.stringify({ type: 'getSellers', count }),
     'Gig seed message sent to user service.'
   );
-  res.status(StatusCodes.CREATED).json({ message: 'Gig created successfully'});
+  res.status(StatusCodes.CREATED).json({ message: 'Gig created successfully' });
 };
 
 export { gig };

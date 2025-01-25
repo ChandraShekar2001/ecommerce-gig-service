@@ -1,4 +1,3 @@
-
 import { gigsSearch } from '@gig/utils/search.utils';
 import { IPaginateProps, ISearchResult, ISellerGig } from '@chandrashekar2001/ecommerce-shared';
 import { Request, Response } from 'express';
@@ -14,9 +13,9 @@ const gigs = async (req: Request, res: Response): Promise<void> => {
     paginate,
     `${req.query.delivery_time}`,
     parseInt(`${req.query.minprice}`),
-    parseInt(`${req.query.maxprice}`),
+    parseInt(`${req.query.maxprice}`)
   );
-  for(const item of gigs.hits) {
+  for (const item of gigs.hits) {
     resultHits.push(item._source as ISellerGig);
   }
   if (type === 'backward') {

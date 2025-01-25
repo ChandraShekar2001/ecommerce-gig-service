@@ -13,7 +13,7 @@ const gigUpdate = async (req: Request, res: Response): Promise<void> => {
   const isDataUrl = isDataURL(req.body.coverImage);
   let coverImage = '';
   if (isDataUrl) {
-    const result: UploadApiResponse = await uploads(req.body.coverImage) as UploadApiResponse;
+    const result: UploadApiResponse = (await uploads(req.body.coverImage)) as UploadApiResponse;
     if (!result.public_id) {
       throw new BadRequestError('File upload error. Try again.', 'Update gig() method');
     }

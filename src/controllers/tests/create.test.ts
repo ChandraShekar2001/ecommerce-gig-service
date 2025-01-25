@@ -44,7 +44,7 @@ describe('Gig Controller', () => {
     it('should throw file upload error', () => {
       const req: Request = gigMockRequest({}, sellerGig, authUserPayload) as unknown as Request;
       const res: Response = gigMockResponse();
-      jest.spyOn(gigCreateSchema, 'validate').mockImplementation((): any => Promise.resolve({error: {}}));
+      jest.spyOn(gigCreateSchema, 'validate').mockImplementation((): any => Promise.resolve({ error: {} }));
       jest.spyOn(helper, 'uploads').mockImplementation((): any => Promise.resolve({ public_id: '' }));
 
       gigCreate(req, res).catch(() => {
@@ -55,14 +55,15 @@ describe('Gig Controller', () => {
     it('should create a new gig and return the correct response', async () => {
       const req: Request = gigMockRequest({}, sellerGig, authUserPayload) as unknown as Request;
       const res: Response = gigMockResponse();
-      jest.spyOn(gigCreateSchema, 'validate').mockImplementation((): any => Promise.resolve({error: {}}));
+      jest.spyOn(gigCreateSchema, 'validate').mockImplementation((): any => Promise.resolve({ error: {} }));
       jest.spyOn(helper, 'uploads').mockImplementation((): any => Promise.resolve({ public_id: '123456' }));
       jest.spyOn(gigService, 'createGig').mockResolvedValue(sellerGig);
 
       await gigCreate(req, res);
       expect(res.status).toHaveBeenCalledWith(201);
       expect(res.json).toHaveBeenCalledWith({
-        message: 'Gig created successfully.', gig: sellerGig
+        message: 'Gig created successfully.',
+        gig: sellerGig
       });
     });
   });

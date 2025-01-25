@@ -62,7 +62,7 @@ const routesMiddleware = (app: Application): void => {
 };
 
 const startQueues = async (): Promise<void> => {
-  gigChannel = await createConnection() as Channel;
+  gigChannel = (await createConnection()) as Channel;
   await consumeGigDirectMessage(gigChannel);
   await consumeSeedDirectMessages(gigChannel);
 };
@@ -74,7 +74,7 @@ const startElasticSearch = (): void => {
 
 const gigErrorHandler = (app: Application): void => {
   app.use((error: IErrorResponse, _req: Request, res: Response, next: NextFunction) => {
-    log.log('error', `GigService : `, error);
+    log.log('error', 'GigService : ', error);
     if (error instanceof CustomError) {
       res.status(error.statusCode).json(error.serializeErrors());
     }

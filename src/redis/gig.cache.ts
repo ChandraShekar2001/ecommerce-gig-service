@@ -10,7 +10,7 @@ const getUserSelectedGigCategory = async (key: string): Promise<string> => {
     if (!client.isOpen) {
       await client.connect();
     }
-    const response: string = await client.GET(key) as string;
+    const response: string = (await client.GET(key)) as string;
     return response;
   } catch (error) {
     log.log('error', 'GigService GigCache getUserSelectedGigCategory() method error:', error);
